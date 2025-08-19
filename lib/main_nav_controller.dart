@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'profile_page.dart';
 
 class BottomNavController extends StatefulWidget {
+  const BottomNavController({super.key});
+
   @override
-  _BottomNavControllerState createState() => _BottomNavControllerState();
+  State<BottomNavController> createState() => _BottomNavControllerState();
 }
 
 class _BottomNavControllerState extends State<BottomNavController> {
@@ -34,7 +36,10 @@ class _BottomNavControllerState extends State<BottomNavController> {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.videogame_asset), label: "Games"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.videogame_asset),
+            label: "Games",
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.work), label: "Careers"),
           BottomNavigationBarItem(icon: Icon(Icons.group), label: "Mentors"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
