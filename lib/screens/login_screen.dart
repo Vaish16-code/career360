@@ -5,9 +5,12 @@ import 'mentor/mentor_dashboard.dart';
 import '../theme.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/loading_dialog.dart';
+import '../main_nav_controller.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -17,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final password = TextEditingController();
 
   Future<void> _login() async {
-    // show loading
+    // Show loading dialog
     showLoadingDialog(context, message: "Signing in...");
 
     final res = await ApiService.login(
@@ -25,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
       password: password.text,
     );
 
-    if (!mounted) return; // ✅ prevent context errors
+    if (!mounted) return;
     hideLoadingDialog(context);
 
     if (res["error"] != null) {
@@ -42,14 +45,18 @@ class _LoginScreenState extends State<LoginScreen> {
           (_) => false,
         );
       } else {
-        // TODO: Navigate to student home screen (waiting for friend's home page)
-        _popup("Success", "Student login successful! Home page coming soon...");
+        // ✅ Navigate to your BottomNavController (student landing page)
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (_) => BottomNavController()),
+          (_) => false,
+        );
       }
     }
   }
 
   void _popup(String title, String msg) {
-    if (!mounted) return; // ✅ safe check
+    if (!mounted) return;
     showDialog(
       context: context,
       builder: (_) {
