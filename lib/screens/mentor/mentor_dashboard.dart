@@ -29,10 +29,7 @@ class _MentorDashboardState extends State<MentorDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _screens,
-      ),
+      body: IndexedStack(index: _currentIndex, children: _screens),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
@@ -57,18 +54,9 @@ class _MentorDashboardState extends State<MentorDashboard> {
             icon: Icon(Icons.person_add),
             label: 'Requests',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.folder),
-            label: 'Resources',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: 'Messages',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: 'Reviews',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.folder), label: 'Resources'),
+          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Messages'),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Reviews'),
         ],
       ),
     );

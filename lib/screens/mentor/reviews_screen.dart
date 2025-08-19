@@ -9,42 +9,48 @@ class ReviewsScreen extends StatelessWidget {
       'student': 'Alex Chen',
       'date': 'Aug 18, 2025',
       'rating': 5,
-      'comment': 'Dr. Sarah is an amazing mentor! She helped me understand the software engineering field and gave me clear guidance on my career path. Her insights are invaluable.',
+      'comment':
+          'Dr. Sarah is an amazing mentor! She helped me understand the software engineering field and gave me clear guidance on my career path. Her insights are invaluable.',
       'session': 'Career Planning Session',
     },
     {
       'student': 'Maria Garcia',
       'date': 'Aug 16, 2025',
       'rating': 5,
-      'comment': 'Excellent mentoring session. Very knowledgeable and patient. She answered all my questions about getting into tech and provided great resources.',
+      'comment':
+          'Excellent mentoring session. Very knowledgeable and patient. She answered all my questions about getting into tech and provided great resources.',
       'session': 'Tech Industry Overview',
     },
     {
       'student': 'Emma Wilson',
       'date': 'Aug 15, 2025',
       'rating': 4,
-      'comment': 'Great session! Really helpful advice on portfolio building and interview preparation. Looking forward to more sessions.',
+      'comment':
+          'Great session! Really helpful advice on portfolio building and interview preparation. Looking forward to more sessions.',
       'session': 'Portfolio Review',
     },
     {
       'student': 'David Kim',
       'date': 'Aug 14, 2025',
       'rating': 5,
-      'comment': 'Dr. Sarah provided excellent guidance on choosing the right programming languages to learn. Her real-world experience really shows.',
+      'comment':
+          'Dr. Sarah provided excellent guidance on choosing the right programming languages to learn. Her real-world experience really shows.',
       'session': 'Technical Skills Discussion',
     },
     {
       'student': 'John Smith',
       'date': 'Aug 12, 2025',
       'rating': 4,
-      'comment': 'Very insightful session about the current job market in tech. Got great tips on how to stand out as a candidate.',
+      'comment':
+          'Very insightful session about the current job market in tech. Got great tips on how to stand out as a candidate.',
       'session': 'Job Market Analysis',
     },
     {
       'student': 'Sofia Rodriguez',
       'date': 'Aug 10, 2025',
       'rating': 5,
-      'comment': 'Amazing mentor! She helped me create a clear roadmap for my career transition into tech. Highly recommend!',
+      'comment':
+          'Amazing mentor! She helped me create a clear roadmap for my career transition into tech. Highly recommend!',
       'session': 'Career Transition Planning',
     },
   ];
@@ -57,7 +63,7 @@ class ReviewsScreen extends StatelessWidget {
       (sum, review) => sum + review['rating'],
     );
     final averageRating = totalRating / reviews.length;
-    
+
     // Rating distribution
     final ratingCounts = <int, int>{};
     for (final review in reviews) {
@@ -69,10 +75,7 @@ class ReviewsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Reviews & Feedback',
-          style: TextStyle(
-            fontWeight: FontWeight.w800,
-            color: kGradientStart,
-          ),
+          style: TextStyle(fontWeight: FontWeight.w800, color: kGradientStart),
         ),
         backgroundColor: Colors.white,
         elevation: 2,
@@ -117,9 +120,9 @@ class ReviewsScreen extends StatelessWidget {
                       return Icon(
                         index < averageRating.floor()
                             ? Icons.star
-                            : (index < averageRating 
-                                ? Icons.star_half 
-                                : Icons.star_border),
+                            : (index < averageRating
+                                  ? Icons.star_half
+                                  : Icons.star_border),
                         color: Colors.white,
                         size: 24,
                       );
@@ -128,15 +131,12 @@ class ReviewsScreen extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     'Based on ${reviews.length} reviews',
-                    style: const TextStyle(
-                      color: Colors.white70,
-                      fontSize: 14,
-                    ),
+                    style: const TextStyle(color: Colors.white70, fontSize: 14),
                   ),
                 ],
               ),
             ),
-            
+
             // Rating Distribution
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -158,22 +158,27 @@ class ReviewsScreen extends StatelessWidget {
                         final rating = 5 - index;
                         final count = ratingCounts[rating] ?? 0;
                         final percentage = count / reviews.length;
-                        
+
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 2),
                           child: Row(
                             children: [
                               Text('$rating'),
                               const SizedBox(width: 4),
-                              const Icon(Icons.star, size: 16, color: Colors.amber),
+                              const Icon(
+                                Icons.star,
+                                size: 16,
+                                color: Colors.amber,
+                              ),
                               const SizedBox(width: 8),
                               Expanded(
                                 child: LinearProgressIndicator(
                                   value: percentage,
                                   backgroundColor: Colors.grey[200],
-                                  valueColor: const AlwaysStoppedAnimation<Color>(
-                                    kGradientStart,
-                                  ),
+                                  valueColor:
+                                      const AlwaysStoppedAnimation<Color>(
+                                        kGradientStart,
+                                      ),
                                 ),
                               ),
                               const SizedBox(width: 8),
@@ -194,22 +199,19 @@ class ReviewsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Reviews List
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 'Recent Reviews',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
             ),
             const SizedBox(height: 8),
-            
+
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -269,7 +271,9 @@ class ReviewsScreen extends StatelessWidget {
                                       vertical: 2,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: kGradientStart.withValues(alpha: 0.1),
+                                      color: kGradientStart.withValues(
+                                        alpha: 0.1,
+                                      ),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                     child: Text(
@@ -311,7 +315,7 @@ class ReviewsScreen extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 12),
-                        
+
                         // Review Comment
                         Container(
                           padding: const EdgeInsets.all(12),
@@ -321,14 +325,11 @@ class ReviewsScreen extends StatelessWidget {
                           ),
                           child: Text(
                             review['comment'],
-                            style: const TextStyle(
-                              fontSize: 14,
-                              height: 1.4,
-                            ),
+                            style: const TextStyle(fontSize: 14, height: 1.4),
                           ),
                         ),
                         const SizedBox(height: 8),
-                        
+
                         // Actions
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,

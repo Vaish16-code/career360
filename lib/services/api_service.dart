@@ -5,6 +5,43 @@ class ApiService {
   // Base URL for backend (use 10.0.2.2 for Android emulator)
   static const base = "http://10.0.2.2:5000/api/auth";
 
+  // ========== DUMMY CREDENTIALS FOR TESTING ==========
+  // Remove this section when connecting to real database
+  static const Map<String, Map<String, dynamic>> dummyUsers = {
+    // Student credentials
+    'student@test.com': {
+      'password': 'Student123!',
+      'role': 'student',
+      'name': 'John Student',
+      'email': 'student@test.com',
+    },
+    // Mentor credentials
+    'mentor@test.com': {
+      'password': 'Mentor123!',
+      'role': 'mentor',
+      'name': 'Dr. Sarah Mentor',
+      'email': 'mentor@test.com',
+    },
+  };
+
+  // Helper method to check dummy credentials
+  static Map<String, dynamic>? _checkDummyLogin(String email, String password) {
+    if (dummyUsers.containsKey(email)) {
+      final user = dummyUsers[email]!;
+      if (user['password'] == password) {
+        return {
+          'user': {
+            'role': user['role'],
+            'name': user['name'],
+            'email': user['email'],
+          },
+        };
+      }
+    }
+    return null;
+  }
+  // ========== END DUMMY CREDENTIALS ==========
+
   /// Student Registration
   static Future<Map<String, dynamic>> registerStudent({
     required String name,
@@ -60,6 +97,15 @@ class ApiService {
     required String email,
     required String password,
   }) async {
+    // Check dummy credentials first (remove when using real DB)
+    final dummyResult = _checkDummyLogin(email, password);
+    if (dummyResult != null) {
+      // Simulate network delay
+      await Future.delayed(const Duration(milliseconds: 500));
+      return dummyResult;
+    }
+
+    // If dummy credentials don't match, proceed with real API call
     final res = await http.post(
       Uri.parse("$base/login"),
       headers: {"Content-Type": "application/json"},

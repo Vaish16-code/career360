@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
     } else {
       // Check user role and navigate accordingly
       final userRole = res["user"]?["role"] ?? "student";
-      
+
       if (userRole == "mentor") {
         // Navigate to mentor dashboard
         Navigator.pushAndRemoveUntil(

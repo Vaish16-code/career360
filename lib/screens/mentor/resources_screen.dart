@@ -77,10 +77,7 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
       appBar: AppBar(
         title: const Text(
           'Resources & Tools',
-          style: TextStyle(
-            fontWeight: FontWeight.w800,
-            color: kGradientStart,
-          ),
+          style: TextStyle(fontWeight: FontWeight.w800, color: kGradientStart),
         ),
         backgroundColor: Colors.white,
         elevation: 2,
@@ -116,10 +113,7 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
                   const SizedBox(height: 8),
                   const Text(
                     'Upload and share resources with your students',
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: 14,
-                    ),
+                    style: TextStyle(color: Colors.white70, fontSize: 14),
                   ),
                   const SizedBox(height: 16),
                   Row(
@@ -153,7 +147,7 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            
+
             // Uploaded Resources Section
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -162,10 +156,7 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
                 children: [
                   const Text(
                     'Your Uploaded Resources',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   TextButton(
                     onPressed: () => _manageResources(),
@@ -175,7 +166,7 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
               ),
             ),
             const SizedBox(height: 8),
-            
+
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -188,10 +179,7 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
                   child: ListTile(
                     leading: CircleAvatar(
                       backgroundColor: resource['color'].withValues(alpha: 0.1),
-                      child: Icon(
-                        resource['icon'],
-                        color: resource['color'],
-                      ),
+                      child: Icon(resource['icon'], color: resource['color']),
                     ),
                     title: Text(
                       resource['title'],
@@ -233,32 +221,33 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
                             children: [
                               Icon(Icons.delete, size: 18, color: Colors.red),
                               SizedBox(width: 8),
-                              Text('Delete', style: TextStyle(color: Colors.red)),
+                              Text(
+                                'Delete',
+                                style: TextStyle(color: Colors.red),
+                              ),
                             ],
                           ),
                         ),
                       ],
-                      onSelected: (value) => _handleResourceAction(value.toString(), resource),
+                      onSelected: (value) =>
+                          _handleResourceAction(value.toString(), resource),
                     ),
                   ),
                 );
               },
             ),
             const SizedBox(height: 20),
-            
+
             // Quick Links Section
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 'Quick Links & Tools',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
             ),
             const SizedBox(height: 12),
-            
+
             GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -333,18 +322,13 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
     return ElevatedButton.icon(
       onPressed: onTap,
       icon: Icon(icon, size: 16),
-      label: Text(
-        label,
-        style: const TextStyle(fontSize: 12),
-      ),
+      label: Text(label, style: const TextStyle(fontSize: 12)),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.white,
         foregroundColor: kGradientStart,
         elevation: 0,
         padding: const EdgeInsets.symmetric(vertical: 12),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
     );
   }
@@ -384,14 +368,14 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
   void _handleResourceAction(String action, Map<String, dynamic> resource) {
     switch (action) {
       case 'view':
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Viewing ${resource['title']}')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Viewing ${resource['title']}')));
         break;
       case 'edit':
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Editing ${resource['title']}')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Editing ${resource['title']}')));
         break;
       case 'delete':
         _deleteResource(resource);
@@ -404,7 +388,9 @@ class _ResourcesScreenState extends State<ResourcesScreen> {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Delete Resource'),
-        content: Text('Are you sure you want to delete "${resource['title']}"?'),
+        content: Text(
+          'Are you sure you want to delete "${resource['title']}"?',
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),

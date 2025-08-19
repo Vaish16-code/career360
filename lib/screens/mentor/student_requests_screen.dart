@@ -25,21 +25,24 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
       'student': 'Alex Chen',
       'level': 'Class 12',
       'domain': 'Technology',
-      'goal': 'Want to pursue Computer Science and learn about software development career paths.',
+      'goal':
+          'Want to pursue Computer Science and learn about software development career paths.',
       'interests': ['Programming', 'AI', 'Web Development'],
     },
     {
       'student': 'Maria Garcia',
       'level': 'Class 10',
       'domain': 'Medicine',
-      'goal': 'Interested in becoming a doctor and understanding medical career options.',
+      'goal':
+          'Interested in becoming a doctor and understanding medical career options.',
       'interests': ['Biology', 'Healthcare', 'Research'],
     },
     {
       'student': 'John Smith',
       'level': 'Class 12',
       'domain': 'Design',
-      'goal': 'Passionate about UI/UX design and want guidance on design career.',
+      'goal':
+          'Passionate about UI/UX design and want guidance on design career.',
       'interests': ['Design', 'Art', 'User Experience'],
     },
     {
@@ -53,7 +56,8 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
       'student': 'David Kim',
       'level': 'Class 12',
       'domain': 'Engineering',
-      'goal': 'Want to understand different engineering fields and career prospects.',
+      'goal':
+          'Want to understand different engineering fields and career prospects.',
       'interests': ['Mathematics', 'Physics', 'Technology'],
     },
   ];
@@ -73,10 +77,7 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
       appBar: AppBar(
         title: const Text(
           'Student Requests',
-          style: TextStyle(
-            fontWeight: FontWeight.w800,
-            color: kGradientStart,
-          ),
+          style: TextStyle(fontWeight: FontWeight.w800, color: kGradientStart),
         ),
         backgroundColor: Colors.white,
         elevation: 2,
@@ -88,18 +89,13 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.grey[50],
-              border: Border(
-                bottom: BorderSide(color: Colors.grey[200]!),
-              ),
+              border: Border(bottom: BorderSide(color: Colors.grey[200]!)),
             ),
             child: Row(
               children: [
                 const Text(
                   'Filter by Domain:',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -123,7 +119,7 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
               ],
             ),
           ),
-          
+
           // Requests List
           Expanded(
             child: filteredRequests.isEmpty
@@ -131,11 +127,7 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.inbox,
-                          size: 64,
-                          color: Colors.grey[400],
-                        ),
+                        Icon(Icons.inbox, size: 64, color: Colors.grey[400]),
                         const SizedBox(height: 16),
                         Text(
                           'No requests found for $selectedDomain',
@@ -179,7 +171,8 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
                                   const SizedBox(width: 12),
                                   Expanded(
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(
                                           request['student'],
@@ -204,7 +197,9 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
                                       vertical: 4,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: kGradientStart.withValues(alpha: 0.1),
+                                      color: kGradientStart.withValues(
+                                        alpha: 0.1,
+                                      ),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Text(
@@ -219,7 +214,7 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
                                 ],
                               ),
                               const SizedBox(height: 12),
-                              
+
                               // Goal Description
                               const Text(
                                 'Goal:',
@@ -237,7 +232,7 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
                                 ),
                               ),
                               const SizedBox(height: 12),
-                              
+
                               // Interests
                               const Text(
                                 'Interests:',
@@ -251,47 +246,57 @@ class _StudentRequestsScreenState extends State<StudentRequestsScreen> {
                                 spacing: 8,
                                 runSpacing: 4,
                                 children: request['interests']
-                                    .map<Widget>((interest) => Container(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 8,
-                                            vertical: 4,
+                                    .map<Widget>(
+                                      (interest) => Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 8,
+                                          vertical: 4,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue.withValues(
+                                            alpha: 0.1,
                                           ),
-                                          decoration: BoxDecoration(
-                                            color: Colors.blue.withValues(alpha: 0.1),
-                                            borderRadius: BorderRadius.circular(8),
+                                          borderRadius: BorderRadius.circular(
+                                            8,
                                           ),
-                                          child: Text(
-                                            interest,
-                                            style: const TextStyle(
-                                              color: Colors.blue,
-                                              fontSize: 12,
-                                            ),
+                                        ),
+                                        child: Text(
+                                          interest,
+                                          style: const TextStyle(
+                                            color: Colors.blue,
+                                            fontSize: 12,
                                           ),
-                                        ))
+                                        ),
+                                      ),
+                                    )
                                     .toList(),
                               ),
                               const SizedBox(height: 16),
-                              
+
                               // Action Buttons
                               Row(
                                 children: [
                                   Expanded(
                                     child: ElevatedButton.icon(
-                                      onPressed: () => _rejectRequest(request['student']),
+                                      onPressed: () =>
+                                          _rejectRequest(request['student']),
                                       icon: const Icon(Icons.close, size: 16),
                                       label: const Text('Reject'),
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.red[50],
                                         foregroundColor: Colors.red,
                                         elevation: 0,
-                                        side: BorderSide(color: Colors.red[200]!),
+                                        side: BorderSide(
+                                          color: Colors.red[200]!,
+                                        ),
                                       ),
                                     ),
                                   ),
                                   const SizedBox(width: 12),
                                   Expanded(
                                     child: ElevatedButton.icon(
-                                      onPressed: () => _acceptRequest(request['student']),
+                                      onPressed: () =>
+                                          _acceptRequest(request['student']),
                                       icon: const Icon(Icons.check, size: 16),
                                       label: const Text('Accept'),
                                       style: ElevatedButton.styleFrom(

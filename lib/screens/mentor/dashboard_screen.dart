@@ -11,10 +11,7 @@ class DashboardScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Mentor Dashboard',
-          style: TextStyle(
-            fontWeight: FontWeight.w800,
-            color: kGradientStart,
-          ),
+          style: TextStyle(fontWeight: FontWeight.w800, color: kGradientStart),
         ),
         backgroundColor: Colors.white,
         elevation: 2,
@@ -43,11 +40,7 @@ class DashboardScreen extends StatelessWidget {
                     const CircleAvatar(
                       radius: 40,
                       backgroundColor: kGradientStart,
-                      child: Icon(
-                        Icons.person,
-                        size: 40,
-                        color: Colors.white,
-                      ),
+                      child: Icon(Icons.person, size: 40, color: Colors.white),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
@@ -101,14 +94,11 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            
+
             // Quick Stats
             const Text(
               'Quick Stats',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 12),
             Row(
@@ -155,14 +145,11 @@ class DashboardScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            
+
             // Recent Activity
             const Text(
               'Recent Activity',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 12),
             Card(
@@ -194,7 +181,12 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStatCard(String title, String value, IconData icon, Color color) {
+  Widget _buildStatCard(
+    String title,
+    String value,
+    IconData icon,
+    Color color,
+  ) {
     return Card(
       elevation: 2,
       child: Padding(
@@ -215,10 +207,7 @@ class DashboardScreen extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
+              style: const TextStyle(fontSize: 12, color: Colors.grey),
             ),
           ],
         ),
@@ -232,10 +221,7 @@ class DashboardScreen extends StatelessWidget {
         backgroundColor: kGradientStart.withValues(alpha: 0.1),
         child: Icon(icon, color: kGradientStart, size: 20),
       ),
-      title: Text(
-        title,
-        style: const TextStyle(fontSize: 14),
-      ),
+      title: Text(title, style: const TextStyle(fontSize: 14)),
       subtitle: Text(
         time,
         style: const TextStyle(fontSize: 12, color: Colors.grey),

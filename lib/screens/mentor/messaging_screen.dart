@@ -55,29 +55,29 @@ class _MessagingScreenState extends State<MessagingScreen> {
         'time': '2:00 PM',
       },
       {
-        'text': 'Hello Alex! Yes, I\'m ready. Do you have any specific topics you\'d like to discuss?',
+        'text':
+            'Hello Alex! Yes, I\'m ready. Do you have any specific topics you\'d like to discuss?',
         'isMe': true,
         'time': '2:05 PM',
       },
       {
-        'text': 'I want to learn about career paths in AI and machine learning.',
+        'text':
+            'I want to learn about career paths in AI and machine learning.',
         'isMe': false,
         'time': '2:06 PM',
       },
       {
-        'text': 'Perfect! That\'s exactly my area of expertise. Let\'s start with the fundamentals.',
+        'text':
+            'Perfect! That\'s exactly my area of expertise. Let\'s start with the fundamentals.',
         'isMe': true,
         'time': '2:07 PM',
       },
-      {
-        'text': 'Thank you for the session!',
-        'isMe': false,
-        'time': '2:30 PM',
-      },
+      {'text': 'Thank you for the session!', 'isMe': false, 'time': '2:30 PM'},
     ],
     '2': [
       {
-        'text': 'Hello! I have some questions about the career planning we discussed.',
+        'text':
+            'Hello! I have some questions about the career planning we discussed.',
         'isMe': false,
         'time': '1:00 PM',
       },
@@ -86,11 +86,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
         'isMe': true,
         'time': '1:05 PM',
       },
-      {
-        'text': 'When is our next meeting?',
-        'isMe': false,
-        'time': '1:15 PM',
-      },
+      {'text': 'When is our next meeting?', 'isMe': false, 'time': '1:15 PM'},
     ],
     '3': [
       {
@@ -118,9 +114,11 @@ class _MessagingScreenState extends State<MessagingScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          selectedStudentId == null 
-              ? 'Messages' 
-              : students.firstWhere((s) => s['id'] == selectedStudentId)['name'],
+          selectedStudentId == null
+              ? 'Messages'
+              : students.firstWhere(
+                  (s) => s['id'] == selectedStudentId,
+                )['name'],
           style: const TextStyle(
             fontWeight: FontWeight.w800,
             color: kGradientStart,
@@ -154,15 +152,14 @@ class _MessagingScreenState extends State<MessagingScreen> {
       body: Row(
         children: [
           // Student List (left side)
-          if (MediaQuery.of(context).size.width > 600 || selectedStudentId == null)
+          if (MediaQuery.of(context).size.width > 600 ||
+              selectedStudentId == null)
             Container(
-              width: MediaQuery.of(context).size.width > 600 
-                  ? 300 
+              width: MediaQuery.of(context).size.width > 600
+                  ? 300
                   : MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                border: Border(
-                  right: BorderSide(color: Colors.grey[200]!),
-                ),
+                border: Border(right: BorderSide(color: Colors.grey[200]!)),
               ),
               child: Column(
                 children: [
@@ -182,7 +179,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
                       ),
                     ),
                   ),
-                  
+
                   // Students List
                   Expanded(
                     child: ListView.builder(
@@ -190,9 +187,11 @@ class _MessagingScreenState extends State<MessagingScreen> {
                       itemBuilder: (context, index) {
                         final student = students[index];
                         final isSelected = selectedStudentId == student['id'];
-                        
+
                         return Container(
-                          color: isSelected ? kGradientStart.withValues(alpha: 0.1) : null,
+                          color: isSelected
+                              ? kGradientStart.withValues(alpha: 0.1)
+                              : null,
                           child: ListTile(
                             leading: Stack(
                               children: [
@@ -231,8 +230,8 @@ class _MessagingScreenState extends State<MessagingScreen> {
                                   child: Text(
                                     student['name'],
                                     style: TextStyle(
-                                      fontWeight: student['unread'] > 0 
-                                          ? FontWeight.w700 
+                                      fontWeight: student['unread'] > 0
+                                          ? FontWeight.w700
                                           : FontWeight.w500,
                                     ),
                                   ),
@@ -266,8 +265,8 @@ class _MessagingScreenState extends State<MessagingScreen> {
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                      color: student['unread'] > 0 
-                                          ? Colors.black87 
+                                      color: student['unread'] > 0
+                                          ? Colors.black87
                                           : Colors.grey,
                                     ),
                                   ),
@@ -296,9 +295,10 @@ class _MessagingScreenState extends State<MessagingScreen> {
                 ],
               ),
             ),
-          
+
           // Chat Area (right side)
-          if (MediaQuery.of(context).size.width > 600 || selectedStudentId != null)
+          if (MediaQuery.of(context).size.width > 600 ||
+              selectedStudentId != null)
             Expanded(
               child: selectedStudentId == null
                   ? const Center(
@@ -313,10 +313,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
                           SizedBox(height: 16),
                           Text(
                             'Select a student to start chatting',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey,
-                            ),
+                            style: TextStyle(fontSize: 16, color: Colors.grey),
                           ),
                         ],
                       ),
@@ -330,7 +327,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
 
   Widget _buildChatArea() {
     final messages = chatMessages[selectedStudentId] ?? [];
-    
+
     return Column(
       children: [
         // Messages
@@ -341,7 +338,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
             itemBuilder: (context, index) {
               final message = messages[index];
               final isMe = message['isMe'];
-              
+
               return Align(
                 alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
                 child: Container(
@@ -381,15 +378,13 @@ class _MessagingScreenState extends State<MessagingScreen> {
             },
           ),
         ),
-        
+
         // Message Input
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white,
-            border: Border(
-              top: BorderSide(color: Colors.grey[200]!),
-            ),
+            border: Border(top: BorderSide(color: Colors.grey[200]!)),
           ),
           child: Row(
             children: [
@@ -432,7 +427,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
 
   void _sendMessage() {
     if (_messageController.text.trim().isEmpty) return;
-    
+
     setState(() {
       chatMessages[selectedStudentId]?.add({
         'text': _messageController.text.trim(),
@@ -440,7 +435,7 @@ class _MessagingScreenState extends State<MessagingScreen> {
         'time': 'Now',
       });
     });
-    
+
     _messageController.clear();
   }
 
@@ -491,9 +486,9 @@ class _MessagingScreenState extends State<MessagingScreen> {
   }
 
   void _showComingSoon(String feature) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('$feature feature coming soon!')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text('$feature feature coming soon!')));
   }
 
   @override

@@ -30,10 +30,7 @@ class _SessionScreenState extends State<SessionScreen>
       appBar: AppBar(
         title: const Text(
           'Session Management',
-          style: TextStyle(
-            fontWeight: FontWeight.w800,
-            color: kGradientStart,
-          ),
+          style: TextStyle(fontWeight: FontWeight.w800, color: kGradientStart),
         ),
         backgroundColor: Colors.white,
         elevation: 2,
@@ -65,10 +62,7 @@ class _SessionScreenState extends State<SessionScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          _buildUpcomingSessions(),
-          _buildPastSessions(),
-        ],
+        children: [_buildUpcomingSessions(), _buildPastSessions()],
       ),
     );
   }
@@ -127,7 +121,11 @@ class _SessionScreenState extends State<SessionScreen>
                 const SizedBox(height: 4),
                 Row(
                   children: [
-                    const Icon(Icons.calendar_today, size: 14, color: Colors.grey),
+                    const Icon(
+                      Icons.calendar_today,
+                      size: 14,
+                      color: Colors.grey,
+                    ),
                     const SizedBox(width: 4),
                     Text('${session['date']} • ${session['time']}'),
                   ],
@@ -153,7 +151,7 @@ class _SessionScreenState extends State<SessionScreen>
             trailing: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: session['status'] == 'Confirmed' 
+                color: session['status'] == 'Confirmed'
                     ? Colors.green.withValues(alpha: 0.1)
                     : Colors.orange.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
@@ -161,8 +159,8 @@ class _SessionScreenState extends State<SessionScreen>
               child: Text(
                 session['status']!,
                 style: TextStyle(
-                  color: session['status'] == 'Confirmed' 
-                      ? Colors.green 
+                  color: session['status'] == 'Confirmed'
+                      ? Colors.green
                       : Colors.orange,
                   fontWeight: FontWeight.w600,
                   fontSize: 12,
@@ -229,7 +227,11 @@ class _SessionScreenState extends State<SessionScreen>
                 const SizedBox(height: 4),
                 Row(
                   children: [
-                    const Icon(Icons.calendar_today, size: 14, color: Colors.grey),
+                    const Icon(
+                      Icons.calendar_today,
+                      size: 14,
+                      color: Colors.grey,
+                    ),
                     const SizedBox(width: 4),
                     Text('${session['date']} • ${session['time']}'),
                   ],
@@ -239,7 +241,7 @@ class _SessionScreenState extends State<SessionScreen>
                   children: List.generate(5, (starIndex) {
                     return Icon(
                       starIndex < (session['rating'] as int)
-                          ? Icons.star 
+                          ? Icons.star
                           : Icons.star_border,
                       color: Colors.amber,
                       size: 16,
@@ -257,10 +259,7 @@ class _SessionScreenState extends State<SessionScreen>
                 ),
               ],
             ),
-            trailing: const Icon(
-              Icons.check_circle,
-              color: Colors.green,
-            ),
+            trailing: const Icon(Icons.check_circle, color: Colors.green),
           ),
         );
       },
