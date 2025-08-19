@@ -51,6 +51,21 @@ class ApiService {
     required String education,
     required List<String> interests,
   }) async {
+    // For dummy data - always return success (remove when using real DB)
+    await Future.delayed(const Duration(milliseconds: 800)); // Simulate network delay
+    return {
+      "message": "Student account created successfully!",
+      "user": {
+        "role": "student",
+        "name": name,
+        "email": email,
+        "education": education,
+        "interests": interests,
+      }
+    };
+
+    // Original API call (commented out for dummy data)
+    /*
     final res = await http.post(
       Uri.parse("$base/register"),
       headers: {"Content-Type": "application/json"},
@@ -65,6 +80,7 @@ class ApiService {
       }),
     );
     return _json(res);
+    */
   }
 
   /// Mentor Registration
@@ -76,6 +92,21 @@ class ApiService {
     required List<String> expertise,
     required List<String> availability,
   }) async {
+    // For dummy data - always return success (remove when using real DB)
+    await Future.delayed(const Duration(milliseconds: 800)); // Simulate network delay
+    return {
+      "message": "Mentor account created successfully!",
+      "user": {
+        "role": "mentor",
+        "name": name,
+        "email": email,
+        "expertise": expertise,
+        "availability": availability,
+      }
+    };
+
+    // Original API call (commented out for dummy data)
+    /*
     final res = await http.post(
       Uri.parse("$base/register"),
       headers: {"Content-Type": "application/json"},
@@ -90,6 +121,7 @@ class ApiService {
       }),
     );
     return _json(res);
+    */
   }
 
   /// Login

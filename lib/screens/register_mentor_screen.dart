@@ -3,6 +3,7 @@ import '../services/api_service.dart';
 import '../widgets/multi_choice_chip.dart';
 import '../theme.dart';
 import 'login_screen.dart';
+import 'mentor/mentor_dashboard.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/loading_dialog.dart';
 
@@ -85,7 +86,7 @@ class _RegisterMentorScreenState extends State<RegisterMentorScreen> {
           onOk: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (_) => const LoginScreen()),
+              MaterialPageRoute(builder: (_) => const MentorDashboard()),
               (_) => false,
             );
           },

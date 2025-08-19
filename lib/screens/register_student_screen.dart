@@ -3,6 +3,7 @@ import '../services/api_service.dart';
 import '../widgets/multi_choice_chip.dart';
 import '../theme.dart';
 import 'login_screen.dart';
+import 'home_screen.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/loading_dialog.dart';
 
@@ -78,7 +79,7 @@ class _RegisterStudentScreenState extends State<RegisterStudentScreen> {
           onOk: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (_) => const LoginScreen()),
+              MaterialPageRoute(builder: (_) => const HomeScreen()),
               (_) => false,
             );
           },
