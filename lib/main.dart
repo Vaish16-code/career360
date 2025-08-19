@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'theme.dart';
-import 'screens/splash_screen.dart';
-import 'screens/mentor/mentor_dashboard.dart'; // Temporary import for testing
+import 'screens/login_screen.dart'; // 👈 your teammate's login screen
+import 'profile_page.dart';         // 👈 your ProfilePage
 
 void main() {
-  runApp(const Career360App());
+  runApp(const CareerCounsellingApp());
 }
 
-class Career360App extends StatelessWidget {
-  const Career360App({super.key});
+class CareerCounsellingApp extends StatelessWidget {
+  const CareerCounsellingApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Career360',
       debugShowCheckedModeBanner: false,
-      theme: appTheme(),
-      // Temporarily go directly to mentor dashboard for testing
-      //home: const MentorDashboard(),
-      home: const SplashScreen(), // Original - commented out temporarily
+      title: 'Career360',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const LoginScreen(), // ✅ Start app with login screen
     );
   }
 }
