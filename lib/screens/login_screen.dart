@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import 'role_select_screen.dart';
+import 'mentor/mentor_dashboard.dart';
 import '../theme.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/loading_dialog.dart';
@@ -30,10 +31,20 @@ class _LoginScreenState extends State<LoginScreen> {
     if (res["error"] != null) {
       _popup("Sign In Failed", res["error"]);
     } else {
-      _popup("Welcome", "Login successful!");
-      // If you want to navigate after success, do:
-      // Navigator.pushReplacement(context,
-      //   MaterialPageRoute(builder: (_) => const HomeScreen()));
+      // Check user role and navigate accordingly
+      final userRole = res["user"]?["role"] ?? "student";
+      
+      if (userRole == "mentor") {
+        // Navigate to mentor dashboard
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (_) => const MentorDashboard()),
+          (_) => false,
+        );
+      } else {
+        // TODO: Navigate to student home screen (waiting for friend's home page)
+        _popup("Success", "Student login successful! Home page coming soon...");
+      }
     }
   }
 

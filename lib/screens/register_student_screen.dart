@@ -172,10 +172,13 @@ class _RegisterStudentScreenState extends State<RegisterStudentScreen> {
                       labelText: "Email Address",
                     ),
                     validator: (val) {
-                      if (val == null || val.trim().isEmpty)
+                      if (val == null || val.trim().isEmpty) {
                         return "Enter email";
+                      }
                       final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-                      if (!regex.hasMatch(val)) return "Enter valid email";
+                      if (!regex.hasMatch(val)) {
+                        return "Enter valid email";
+                      }
                       return null;
                     },
                   ),

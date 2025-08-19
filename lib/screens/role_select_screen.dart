@@ -1,7 +1,6 @@
 // lib/screens/role_select_screen.dart
 import 'package:flutter/material.dart';
 import '../widgets/app_logo.dart';
-import '../theme.dart';
 import 'register_student_screen.dart';
 import 'register_mentor_screen.dart';
 

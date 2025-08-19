@@ -47,7 +47,7 @@ class AppLogo extends StatelessWidget {
         gradient: LinearGradient(colors: colors),
         boxShadow: [
           BoxShadow(
-            color: colors.last.withOpacity(0.35),
+            color: colors.last.withValues(alpha: 0.35),
             blurRadius: 24,
             offset: const Offset(0, 10),
           ),
