@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'theme.dart';
-import 'screens/splash_screen.dart';
+import 'screens/auth/login_screen.dart';
 
 void main() {
   runApp(const CareerCounsellingApp());
@@ -14,8 +14,8 @@ class CareerCounsellingApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Career360',
-      theme: appTheme(), // Keep your original theme
-      home: const SplashScreen(), // Keep your splash screen flow
+      theme: appTheme(),
+      home: const LoginScreen(),
     );
   }
 }
