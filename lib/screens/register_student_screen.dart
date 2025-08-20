@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/multi_choice_chip.dart';
 import '../theme.dart';
-import 'login_screen.dart';
-import 'home_screen.dart';
+import 'auth/login_screen.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/loading_dialog.dart';
 
@@ -65,11 +64,11 @@ class _RegisterStudentScreenState extends State<RegisterStudentScreen> {
     Future.delayed(Duration.zero, () {
       _popup(
         "Success",
-        "Student account created successfully!",
+        "Student account created successfully! Please login.",
         onOk: () {
           Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (_) => const HomeScreen()),
+            MaterialPageRoute(builder: (_) => const LoginScreen()),
             (_) => false,
           );
         },

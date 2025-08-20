@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/multi_choice_chip.dart';
 import '../theme.dart';
-import 'login_screen.dart';
-import 'mentor/mentor_dashboard.dart';
+import 'auth/login_screen.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/loading_dialog.dart';
 
@@ -72,11 +71,11 @@ class _RegisterMentorScreenState extends State<RegisterMentorScreen> {
     Future.delayed(Duration.zero, () {
       _popup(
         "Success",
-        "Mentor account created successfully!",
+        "Mentor account created successfully! Please login.",
         onOk: () {
           Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (_) => const MentorDashboard()),
+            MaterialPageRoute(builder: (_) => const LoginScreen()),
             (_) => false,
           );
         },

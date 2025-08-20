@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../../theme.dart';
 import '../../widgets/app_logo.dart';
 import 'forgot_password_screen.dart';
-import 'student_registration_screen.dart';
-import 'mentor_registration_screen.dart';
+import '../register_student_screen.dart';
+import '../register_mentor_screen.dart';
 import '../../main_nav_controller.dart';
 import '../mentor/mentor_dashboard.dart';
 
@@ -287,7 +287,7 @@ class _LoginScreenState extends State<LoginScreen>
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const StudentRegistrationScreen(),
+                              builder: (_) => const RegisterStudentScreen(),
                             ),
                           );
                         },
@@ -303,7 +303,7 @@ class _LoginScreenState extends State<LoginScreen>
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const MentorRegistrationScreen(),
+                              builder: (_) => const RegisterMentorScreen(),
                             ),
                           );
                         },
