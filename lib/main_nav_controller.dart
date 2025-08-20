@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile_page.dart';
+import 'student_messages_page.dart';
 
 class BottomNavController extends StatefulWidget {
   const BottomNavController({super.key});
@@ -9,12 +10,13 @@ class BottomNavController extends StatefulWidget {
 }
 
 class _BottomNavControllerState extends State<BottomNavController> {
-  int _selectedIndex = 4; // Start with Profile tab
+  int _selectedIndex = 0; // Start with Home tab
   final List<Widget> _pages = [
     const Center(child: Text("Home Page")),
     const Center(child: Text("Games Page")),
     const Center(child: Text("Careers Page")),
     const Center(child: Text("Mentors Page")),
+    const StudentMessagesPage(),
     const ProfilePage(),
   ];
 
@@ -33,16 +35,39 @@ class _BottomNavControllerState extends State<BottomNavController> {
         onTap: _onItemTapped,
         selectedItemColor: Colors.deepPurple,
         unselectedItemColor: Colors.grey,
-        type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.shifting,
+        backgroundColor: Colors.white,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+            backgroundColor: Colors.white,
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.videogame_asset),
             label: "Games",
+            backgroundColor: Colors.white,
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.work), label: "Careers"),
-          BottomNavigationBarItem(icon: Icon(Icons.group), label: "Mentors"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.work),
+            label: "Careers",
+            backgroundColor: Colors.white,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.group),
+            label: "Mentors",
+            backgroundColor: Colors.white,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: "Messages",
+            backgroundColor: Colors.white,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+            backgroundColor: Colors.white,
+          ),
         ],
       ),
     );

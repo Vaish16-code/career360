@@ -5,7 +5,7 @@ import '../../services/api_service.dart';
 import 'forgot_password_screen.dart';
 import 'student_registration_screen.dart';
 import 'mentor_registration_screen.dart';
-import '../student/student_home.dart';
+import '../../main_nav_controller.dart';
 import '../mentor/mentor_dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen>
         if (userType == 'student') {
           Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (_) => const StudentHome()),
+            MaterialPageRoute(builder: (_) => const BottomNavController()),
             (_) => false,
           );
         } else if (userType == 'mentor') {
@@ -217,20 +217,23 @@ class _LoginScreenState extends State<LoginScreen>
 
                         const SizedBox(height: 16),
 
-                        // Forgot Password
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => const ForgotPasswordScreen(),
-                                ),
-                              );
-                            },
-                            child: const Text('Forgot Password?'),
-                          ),
+                        // Forgot Password - Centered
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) =>
+                                        const ForgotPasswordScreen(),
+                                  ),
+                                );
+                              },
+                              child: const Text('Forgot Password?'),
+                            ),
+                          ],
                         ),
 
                         const SizedBox(height: 24),

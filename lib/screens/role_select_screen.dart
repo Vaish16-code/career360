@@ -1,8 +1,10 @@
 // lib/screens/role_select_screen.dart
 import 'package:flutter/material.dart';
 import '../widgets/app_logo.dart';
+import '../theme.dart';
 import 'register_student_screen.dart';
 import 'register_mentor_screen.dart';
+import 'auth/login_screen.dart';
 
 class RoleSelectScreen extends StatelessWidget {
   const RoleSelectScreen({super.key});
@@ -69,6 +71,43 @@ class RoleSelectScreen extends StatelessWidget {
                   minimumSize: const Size(double.infinity, 56),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              // Login button for existing users
+              Container(
+                width: double.infinity,
+                height: 1,
+                color: Colors.grey.withOpacity(0.3),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Already have an account?',
+                style: TextStyle(color: Colors.grey[600], fontSize: 14),
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const LoginScreen()),
+                  );
+                },
+                style: OutlinedButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 48),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  side: BorderSide(color: kGradientStart),
+                ),
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                    color: kGradientStart,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),

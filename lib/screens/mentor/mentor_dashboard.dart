@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../../theme.dart';
-import 'tabs/mentor_dashboard_tab.dart';
-import 'tabs/mentor_sessions_tab.dart';
-import 'tabs/mentor_requests_tab.dart';
-import 'tabs/mentor_resources_tab.dart';
-import 'tabs/mentor_messages_tab.dart';
-import 'tabs/mentor_reviews_tab.dart';
+import 'dashboard_screen.dart';
+import 'session_screen.dart';
+import 'student_requests_screen.dart';
+import 'resources_screen.dart';
+import 'messaging_screen.dart';
+import 'reviews_screen.dart';
 
 class MentorDashboard extends StatefulWidget {
   const MentorDashboard({super.key});
@@ -18,12 +18,12 @@ class _MentorDashboardState extends State<MentorDashboard> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const MentorDashboardTab(),
-    const MentorSessionsTab(),
-    const MentorRequestsTab(),
-    const MentorResourcesTab(),
-    const MentorMessagesTab(),
-    const MentorReviewsTab(),
+    const DashboardScreen(),
+    const SessionScreen(),
+    const StudentRequestsScreen(),
+    const ResourcesScreen(),
+    const MessagingScreen(),
+    const ReviewsScreen(),
   ];
 
   @override
