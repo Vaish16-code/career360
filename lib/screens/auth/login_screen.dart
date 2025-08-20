@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../theme.dart';
 import '../../widgets/app_logo.dart';
-import '../../services/api_service.dart';
 import 'forgot_password_screen.dart';
 import 'student_registration_screen.dart';
 import 'mentor_registration_screen.dart';
@@ -53,31 +52,31 @@ class _LoginScreenState extends State<LoginScreen>
     setState(() => _isLoading = true);
 
     try {
-      final result = await ApiService.login(
-        email: _emailController.text.trim(),
-        password: _passwordController.text,
-      );
+      // Simulate login delay
+      await Future.delayed(const Duration(seconds: 2));
 
-      if (result['user'] != null) {
-        final userType = result['user']['role'];
+      // Simple demo authentication
+      if (_emailController.text.trim().isEmpty ||
+          _passwordController.text.isEmpty) {
+        _showError('Please enter both email and password');
+        return;
+      }
 
-        if (!mounted) return;
+      if (!mounted) return;
 
-        if (userType == 'student') {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (_) => const BottomNavController()),
-            (_) => false,
-          );
-        } else if (userType == 'mentor') {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (_) => const MentorDashboard()),
-            (_) => false,
-          );
-        }
+      // Demo: Check if email contains "mentor" for mentor login
+      if (_emailController.text.trim().toLowerCase().contains('mentor')) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (_) => const MentorDashboard()),
+          (_) => false,
+        );
       } else {
-        _showError('Invalid credentials');
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (_) => const BottomNavController()),
+          (_) => false,
+        );
       }
     } catch (e) {
       _showError('Login failed. Please try again.');
@@ -137,9 +136,9 @@ class _LoginScreenState extends State<LoginScreen>
                 Text(
                   'Welcome Back!',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
-                    color: kOnBackground,
-                  ),
+                        fontWeight: FontWeight.w700,
+                        color: kOnBackground,
+                      ),
                 ),
                 const SizedBox(height: 8),
                 Text(
@@ -296,9 +295,7 @@ class _LoginScreenState extends State<LoginScreen>
                         label: const Text('Register as Student'),
                       ),
                     ),
-
                     const SizedBox(height: 12),
-
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton.icon(

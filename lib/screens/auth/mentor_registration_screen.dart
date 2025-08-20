@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../theme.dart';
-import '../../services/api_service.dart';
 import '../mentor/mentor_dashboard.dart';
 
 class MentorRegistrationScreen extends StatefulWidget {
@@ -141,26 +140,24 @@ class _MentorRegistrationScreenState extends State<MentorRegistrationScreen> {
     setState(() => _isLoading = true);
 
     try {
-      final result = await ApiService.registerMentor(
-        name: _nameController.text.trim(),
-        email: _emailController.text.trim(),
-        password: _passwordController.text,
-        bio: _bioController.text.trim(),
-        expertise: _selectedExpertise,
-        availability: _selectedAvailability,
-      );
+      // Simulate registration delay
+      await Future.delayed(const Duration(seconds: 2));
 
-      if (result['message'] != null) {
-        if (!mounted) return;
-
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (_) => const MentorDashboard()),
-          (_) => false,
-        );
-      } else {
-        _showError(result['error'] ?? 'Registration failed');
+      // Simple validation for demo
+      if (_nameController.text.trim().isEmpty ||
+          _emailController.text.trim().isEmpty ||
+          _passwordController.text.isEmpty) {
+        _showError('Please fill in all required fields');
+        return;
       }
+
+      if (!mounted) return;
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (_) => const MentorDashboard()),
+        (_) => false,
+      );
     } catch (e) {
       _showError('Registration failed. Please try again.');
     } finally {
@@ -300,16 +297,16 @@ class _MentorRegistrationScreenState extends State<MentorRegistrationScreen> {
                 Text(
                   'Join as a Mentor',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    color: kOnPrimary,
-                    fontWeight: FontWeight.w700,
-                  ),
+                        color: kOnPrimary,
+                        fontWeight: FontWeight.w700,
+                      ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'Share your expertise and guide the next generation',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: kOnPrimary.withOpacity(0.9),
-                  ),
+                        color: kOnPrimary.withOpacity(0.9),
+                      ),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -329,11 +326,10 @@ class _MentorRegistrationScreenState extends State<MentorRegistrationScreen> {
                   Text(
                     'Basic Information',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
                   const SizedBox(height: 20),
-
                   TextFormField(
                     controller: _nameController,
                     decoration: const InputDecoration(
@@ -348,9 +344,7 @@ class _MentorRegistrationScreenState extends State<MentorRegistrationScreen> {
                       return null;
                     },
                   ),
-
                   const SizedBox(height: 20),
-
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -371,9 +365,7 @@ class _MentorRegistrationScreenState extends State<MentorRegistrationScreen> {
                       return null;
                     },
                   ),
-
                   const SizedBox(height: 20),
-
                   TextFormField(
                     controller: _passwordController,
                     obscureText: _obscurePassword,
@@ -404,9 +396,7 @@ class _MentorRegistrationScreenState extends State<MentorRegistrationScreen> {
                       return null;
                     },
                   ),
-
                   const SizedBox(height: 20),
-
                   TextFormField(
                     controller: _confirmPasswordController,
                     obscureText: _obscureConfirmPassword,
@@ -485,8 +475,8 @@ class _MentorRegistrationScreenState extends State<MentorRegistrationScreen> {
                 Text(
                   'Areas of Expertise',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
                 const SizedBox(height: 8),
                 Text(
@@ -580,8 +570,8 @@ class _MentorRegistrationScreenState extends State<MentorRegistrationScreen> {
                 Text(
                   'Languages Spoken',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
                 const SizedBox(height: 8),
                 Text(
@@ -633,8 +623,8 @@ class _MentorRegistrationScreenState extends State<MentorRegistrationScreen> {
                 Text(
                   'Availability Slots',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
                 const SizedBox(height: 8),
                 Text(

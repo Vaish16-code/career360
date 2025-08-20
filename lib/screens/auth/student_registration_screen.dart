@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../theme.dart';
-import '../../services/api_service.dart';
 import '../student/student_home.dart';
 
 class StudentRegistrationScreen extends StatefulWidget {
@@ -72,26 +71,24 @@ class _StudentRegistrationScreenState extends State<StudentRegistrationScreen> {
     setState(() => _isLoading = true);
 
     try {
-      final result = await ApiService.registerStudent(
-        name: _nameController.text.trim(),
-        email: _emailController.text.trim(),
-        password: _passwordController.text,
-        bio: 'Student interested in $_selectedInterestArea',
-        education: _selectedAcademicLevel!,
-        interests: [_selectedInterestArea!],
-      );
+      // Simulate registration delay
+      await Future.delayed(const Duration(seconds: 2));
 
-      if (result['success']) {
-        if (!mounted) return;
-
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (_) => const StudentHome()),
-          (_) => false,
-        );
-      } else {
-        _showError(result['message'] ?? 'Registration failed');
+      // Simple validation for demo
+      if (_nameController.text.trim().isEmpty ||
+          _emailController.text.trim().isEmpty ||
+          _passwordController.text.isEmpty) {
+        _showError('Please fill in all required fields');
+        return;
       }
+
+      if (!mounted) return;
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (_) => const StudentHome()),
+        (_) => false,
+      );
     } catch (e) {
       _showError('Registration failed. Please try again.');
     } finally {
@@ -143,18 +140,18 @@ class _StudentRegistrationScreenState extends State<StudentRegistrationScreen> {
                     const SizedBox(height: 16),
                     Text(
                       'Join as a Student',
-                      style: Theme.of(context).textTheme.headlineSmall
-                          ?.copyWith(
-                            color: kOnPrimary,
-                            fontWeight: FontWeight.w700,
-                          ),
+                      style:
+                          Theme.of(context).textTheme.headlineSmall?.copyWith(
+                                color: kOnPrimary,
+                                fontWeight: FontWeight.w700,
+                              ),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       'Start your learning journey with expert mentors',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: kOnPrimary.withOpacity(0.9),
-                      ),
+                            color: kOnPrimary.withOpacity(0.9),
+                          ),
                       textAlign: TextAlign.center,
                     ),
                   ],

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../services/api_service.dart';
 import '../widgets/multi_choice_chip.dart';
 import '../theme.dart';
 import 'login_screen.dart';
@@ -64,34 +63,24 @@ class _RegisterMentorScreenState extends State<RegisterMentorScreen> {
 
     showLoadingDialog(context, message: "Creating mentor account...");
 
-    final res = await ApiService.registerMentor(
-      name: name.text.trim(),
-      email: email.text.trim(),
-      password: password.text,
-      bio: bio.text,
-      expertise: selectedExpertise,
-      availability: selectedAvailability,
-    );
+    // Simulate successful registration
+    await Future.delayed(const Duration(seconds: 2));
 
     if (!mounted) return;
     hideLoadingDialog(context);
 
     Future.delayed(Duration.zero, () {
-      if (res["error"] != null) {
-        _popup("Registration Failed", res["error"]);
-      } else {
-        _popup(
-          "Success",
-          "Mentor account created!",
-          onOk: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (_) => const MentorDashboard()),
-              (_) => false,
-            );
-          },
-        );
-      }
+      _popup(
+        "Success",
+        "Mentor account created successfully!",
+        onOk: () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (_) => const MentorDashboard()),
+            (_) => false,
+          );
+        },
+      );
     });
   }
 

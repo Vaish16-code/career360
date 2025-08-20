@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import '../services/api_service.dart';
 import 'role_select_screen.dart';
 import 'mentor/mentor_dashboard.dart';
 import '../theme.dart';
 import '../widgets/app_logo.dart';
 import '../widgets/loading_dialog.dart';
 import '../main_nav_controller.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -23,35 +21,33 @@ class _LoginScreenState extends State<LoginScreen> {
     // Show loading dialog
     showLoadingDialog(context, message: "Signing in...");
 
-    final res = await ApiService.login(
-      email: email.text.trim(),
-      password: password.text,
-    );
+    // Simulate login delay
+    await Future.delayed(const Duration(seconds: 2));
 
     if (!mounted) return;
     hideLoadingDialog(context);
 
-    if (res["error"] != null) {
-      _popup("Sign In Failed", res["error"]);
-    } else {
-      // Check user role and navigate accordingly
-      final userRole = res["user"]?["role"] ?? "student";
+    // Simple validation for demo purposes
+    if (email.text.trim().isEmpty || password.text.isEmpty) {
+      _popup("Sign In Failed", "Please enter both email and password");
+      return;
+    }
 
-      if (userRole == "mentor") {
-        // Navigate to mentor dashboard
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (_) => const MentorDashboard()),
-          (_) => false,
-        );
-      } else {
-        // ✅ Navigate to your BottomNavController (student landing page)
-        Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (_) => BottomNavController()),
-          (_) => false,
-        );
-      }
+    // For demo, check simple credentials
+    if (email.text.trim() == "mentor@test.com") {
+      // Navigate to mentor dashboard
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (_) => const MentorDashboard()),
+        (_) => false,
+      );
+    } else {
+      // Navigate to student home (BottomNavController)
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (_) => BottomNavController()),
+        (_) => false,
+      );
     }
   }
 
