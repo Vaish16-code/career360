@@ -22,6 +22,8 @@ class _RegisterMentorScreenState extends State<RegisterMentorScreen> {
 
   List<String> selectedExpertise = [];
   List<String> selectedAvailability = [];
+  bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
 
   final expertise = const [
     "Technology & Programming",
@@ -165,8 +167,22 @@ class _RegisterMentorScreenState extends State<RegisterMentorScreen> {
                   const SizedBox(height: 12),
                   TextFormField(
                     controller: password,
-                    obscureText: true,
-                    decoration: const InputDecoration(labelText: "Password"),
+                    obscureText: _obscurePassword,
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscurePassword
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
+                      ),
+                    ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Password is required";
@@ -182,9 +198,21 @@ class _RegisterMentorScreenState extends State<RegisterMentorScreen> {
                   const SizedBox(height: 12),
                   TextFormField(
                     controller: confirmPassword,
-                    obscureText: true,
-                    decoration: const InputDecoration(
+                    obscureText: _obscureConfirmPassword,
+                    decoration: InputDecoration(
                       labelText: "Confirm Password",
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureConfirmPassword
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscureConfirmPassword = !_obscureConfirmPassword;
+                          });
+                        },
+                      ),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {

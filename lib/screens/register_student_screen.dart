@@ -22,6 +22,8 @@ class _RegisterStudentScreenState extends State<RegisterStudentScreen> {
 
   String? selectedClass;
   List<String> selectedInterests = [];
+  bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
 
   final classes = const ["Class 10", "Class 12"];
   final interests = const [
@@ -174,8 +176,22 @@ class _RegisterStudentScreenState extends State<RegisterStudentScreen> {
                   const SizedBox(height: 12),
                   TextFormField(
                     controller: password,
-                    obscureText: true,
-                    decoration: const InputDecoration(labelText: "Password"),
+                    obscureText: _obscurePassword,
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscurePassword
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
+                      ),
+                    ),
                     validator: (val) {
                       if (val == null || val.isEmpty) return "Enter password";
                       if (!RegExp(
@@ -189,12 +205,24 @@ class _RegisterStudentScreenState extends State<RegisterStudentScreen> {
                   const SizedBox(height: 12),
                   TextFormField(
                     controller: confirmPassword,
-                    obscureText: true,
-                    decoration: const InputDecoration(
+                    obscureText: _obscureConfirmPassword,
+                    decoration: InputDecoration(
                       labelText: "Confirm Password",
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureConfirmPassword
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscureConfirmPassword = !_obscureConfirmPassword;
+                          });
+                        },
+                      ),
                     ),
                     validator: (val) =>
-                        val != password.text ? "Passwords don’t match" : null,
+                        val != password.text ? "Passwords don't match" : null,
                   ),
                   const SizedBox(height: 18),
                   const Text(
