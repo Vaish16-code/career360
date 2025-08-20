@@ -111,7 +111,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
             onPressed: () {
               // Show filter options
             },
-            icon: Icon(Icons.filter_list, color: kOnSurface),
+            icon: const Icon(Icons.filter_list, color: kOnSurface),
           ),
         ],
       ),
@@ -179,7 +179,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
           // Mentors Grid
           Expanded(
             child: _filteredMentors.isEmpty
-                ? Center(
+                ? const Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -188,7 +188,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
                           size: 64,
                           color: kOnSurfaceVariant,
                         ),
-                        const SizedBox(height: 16),
+                        SizedBox(height: 16),
                         Text(
                           'No mentors found',
                           style: TextStyle(
@@ -197,7 +197,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
                             color: kOnSurfaceVariant,
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        SizedBox(height: 8),
                         Text(
                           'Try adjusting your search or filters',
                           style: TextStyle(color: kOnSurfaceVariant),
@@ -246,7 +246,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
                   : null,
             ),
             child: mentor['image'] == null
-                ? Icon(Icons.person, size: 40, color: kPrimary)
+                ? const Icon(Icons.person, size: 40, color: kPrimary)
                 : null,
           ),
 
@@ -301,7 +301,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
 
                 Text(
                   mentor['expertise'],
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                     color: kPrimary,
@@ -310,14 +310,14 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
 
                 Text(
                   '${mentor['company']} • ${mentor['experience']}',
-                  style: TextStyle(fontSize: 12, color: kOnSurfaceVariant),
+                  style: const TextStyle(fontSize: 12, color: kOnSurfaceVariant),
                 ),
 
                 const SizedBox(height: 8),
 
                 Row(
                   children: [
-                    Icon(Icons.star, size: 16, color: kWarning),
+                    const Icon(Icons.star, size: 16, color: kWarning),
                     const SizedBox(width: 4),
                     Text(
                       '${mentor['rating']}',
@@ -328,12 +328,12 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
                     ),
                     Text(
                       ' (${mentor['reviews']} reviews)',
-                      style: TextStyle(fontSize: 12, color: kOnSurfaceVariant),
+                      style: const TextStyle(fontSize: 12, color: kOnSurfaceVariant),
                     ),
                     const Spacer(),
                     Text(
                       mentor['price'],
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                         color: kPrimary,
@@ -359,7 +359,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
                       ),
                       child: Text(
                         lang,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 10,
                           color: kOnSecondaryContainer,
                         ),
@@ -405,16 +405,16 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Request Mentorship'),
+        title: const Text('Request Mentorship'),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Send a mentorship request to ${mentor['name']}?'),
             const SizedBox(height: 16),
-            TextField(
+            const TextField(
               maxLines: 3,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Message (optional)',
                 hintText: 'Tell them about your goals...',
               ),
@@ -485,7 +485,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
                         color: kPrimaryContainer,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Icon(Icons.person, size: 40, color: kPrimary),
+                      child: const Icon(Icons.person, size: 40, color: kPrimary),
                     ),
                     const SizedBox(width: 16),
                     Expanded(
@@ -499,7 +499,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
                           ),
                           Text(
                             mentor['expertise'],
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
                               color: kPrimary,
@@ -507,7 +507,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
                           ),
                           Text(
                             '${mentor['company']} • ${mentor['experience']}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14,
                               color: kOnSurfaceVariant,
                             ),
@@ -559,7 +559,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
                 const SizedBox(height: 8),
                 Text(
                   'Experienced ${mentor['expertise']} professional with ${mentor['experience']} at ${mentor['company']}. Passionate about mentoring and helping students achieve their career goals.',
-                  style: TextStyle(color: kOnSurfaceVariant, height: 1.5),
+                  style: const TextStyle(color: kOnSurfaceVariant, height: 1.5),
                 ),
 
                 const SizedBox(height: 24),
@@ -626,7 +626,7 @@ class _StudentMentorsTabState extends State<StudentMentorsTab> {
           value,
           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
         ),
-        Text(label, style: TextStyle(fontSize: 12, color: kOnSurfaceVariant)),
+        Text(label, style: const TextStyle(fontSize: 12, color: kOnSurfaceVariant)),
       ],
     );
   }

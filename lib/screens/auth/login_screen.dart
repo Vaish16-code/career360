@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen>
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: kPrimary.withOpacity(0.2),
+                          color: kPrimary.withValues(alpha: 0.2),
                           offset: const Offset(0, 8),
                           blurRadius: 24,
                         ),
@@ -259,8 +259,8 @@ class _LoginScreenState extends State<LoginScreen>
                     Expanded(
                       child: Divider(color: kOnSurfaceVariant.withOpacity(0.3)),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
                         'New to Career360?',
                         style: TextStyle(
@@ -324,12 +324,12 @@ class _LoginScreenState extends State<LoginScreen>
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: kInfo.withOpacity(0.3)),
                   ),
-                  child: Column(
+                  child: const Column(
                     children: [
                       Row(
                         children: [
                           Icon(Icons.info_outline, color: kInfo, size: 20),
-                          const SizedBox(width: 8),
+                          SizedBox(width: 8),
                           Text(
                             'Demo Credentials',
                             style: TextStyle(
@@ -339,7 +339,7 @@ class _LoginScreenState extends State<LoginScreen>
                           ),
                         ],
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8),
                       Text(
                         'Student: student@test.com / Student123!\n'
                         'Mentor: mentor@test.com / Mentor123!',

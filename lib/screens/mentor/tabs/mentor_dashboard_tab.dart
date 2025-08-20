@@ -12,7 +12,7 @@ class MentorDashboardTab extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Row(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               backgroundColor: kPrimaryContainer,
               child: Icon(Icons.person, color: kPrimary),
             ),
@@ -42,8 +42,8 @@ class MentorDashboardTab extends StatelessWidget {
             onPressed: () {
               // Show notifications
             },
-            icon: Badge(
-              label: const Text('2'),
+            icon: const Badge(
+              label: Text('2'),
               child: Icon(Icons.notifications_outlined, color: kOnSurface),
             ),
           ),
@@ -61,7 +61,7 @@ class MentorDashboardTab extends StatelessWidget {
                 children: [
                   Stack(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 40,
                         backgroundColor: kPrimaryContainer,
                         child: Icon(Icons.person, size: 40, color: kPrimary),
@@ -71,11 +71,11 @@ class MentorDashboardTab extends StatelessWidget {
                         right: 0,
                         child: Container(
                           padding: const EdgeInsets.all(4),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: kPrimary,
                             shape: BoxShape.circle,
                           ),
-                          child: Icon(Icons.edit, size: 16, color: kOnPrimary),
+                          child: const Icon(Icons.edit, size: 16, color: kOnPrimary),
                         ),
                       ),
                     ],
@@ -90,7 +90,7 @@ class MentorDashboardTab extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleLarge
                               ?.copyWith(fontWeight: FontWeight.w700),
                         ),
-                        Text(
+                        const Text(
                           'Software Engineering Expert',
                           style: TextStyle(
                             color: kPrimary,
@@ -98,10 +98,10 @@ class MentorDashboardTab extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Row(
+                        const Row(
                           children: [
                             Icon(Icons.star, size: 16, color: kWarning),
-                            const SizedBox(width: 4),
+                            SizedBox(width: 4),
                             Text(
                               '4.9 • 127 reviews',
                               style: TextStyle(
@@ -237,7 +237,7 @@ class MentorDashboardTab extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             value,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w700,
               color: kOnSurface,
@@ -245,7 +245,7 @@ class MentorDashboardTab extends StatelessWidget {
           ),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w500,
               color: kOnSurfaceVariant,
@@ -253,7 +253,7 @@ class MentorDashboardTab extends StatelessWidget {
           ),
           Text(
             subtitle,
-            style: TextStyle(fontSize: 10, color: kOnSurfaceVariant),
+            style: const TextStyle(fontSize: 10, color: kOnSurfaceVariant),
           ),
         ],
       ),
@@ -296,7 +296,7 @@ class MentorDashboardTab extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 subtitle,
-                style: TextStyle(color: kOnSurfaceVariant, fontSize: 12),
+                style: const TextStyle(color: kOnSurfaceVariant, fontSize: 12),
                 textAlign: TextAlign.center,
               ),
             ],
@@ -386,14 +386,14 @@ class MentorDashboardTab extends StatelessWidget {
                     ),
                     Text(
                       activity['subtitle'] as String,
-                      style: TextStyle(color: kOnSurfaceVariant, fontSize: 12),
+                      style: const TextStyle(color: kOnSurfaceVariant, fontSize: 12),
                     ),
                   ],
                 ),
               ),
               Text(
                 activity['time'] as String,
-                style: TextStyle(color: kOnSurfaceVariant, fontSize: 11),
+                style: const TextStyle(color: kOnSurfaceVariant, fontSize: 11),
               ),
             ],
           ),

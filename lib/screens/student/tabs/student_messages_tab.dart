@@ -48,7 +48,7 @@ class _StudentMessagesTabState extends State<StudentMessagesTab> {
             onPressed: () {
               // Show compose options
             },
-            icon: Icon(Icons.edit, color: kOnSurface),
+            icon: const Icon(Icons.edit, color: kOnSurface),
           ),
         ],
       ),
@@ -77,7 +77,7 @@ class _StudentMessagesTabState extends State<StudentMessagesTab> {
               children: [
                 Stack(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 25,
                       backgroundColor: kPrimaryContainer,
                       child: Icon(Icons.person, color: kPrimary),
@@ -118,7 +118,7 @@ class _StudentMessagesTabState extends State<StudentMessagesTab> {
                           ),
                           Text(
                             conversation['timestamp'],
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 12,
                               color: kOnSurfaceVariant,
                             ),
@@ -128,7 +128,7 @@ class _StudentMessagesTabState extends State<StudentMessagesTab> {
                       const SizedBox(height: 4),
                       Text(
                         conversation['lastMessage'],
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
                           color: kOnSurfaceVariant,
                         ),
@@ -143,13 +143,13 @@ class _StudentMessagesTabState extends State<StudentMessagesTab> {
                   const SizedBox(width: 12),
                   Container(
                     padding: const EdgeInsets.all(6),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: kPrimary,
                       shape: BoxShape.circle,
                     ),
                     child: Text(
                       '${conversation['unread']}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: kOnPrimary,
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
@@ -240,7 +240,7 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
             Stack(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundColor: kPrimaryContainer,
                   child: Icon(Icons.person, color: kPrimary, size: 20),
                 ),
@@ -272,7 +272,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                 ),
                 if (widget.conversation['online'])
-                  Text(
+                  const Text(
                     'Online',
                     style: TextStyle(
                       fontSize: 12,
@@ -289,13 +289,13 @@ class _ChatScreenState extends State<ChatScreen> {
             onPressed: () {
               // Video call
             },
-            icon: Icon(Icons.videocam, color: kOnSurface),
+            icon: const Icon(Icons.videocam, color: kOnSurface),
           ),
           IconButton(
             onPressed: () {
               // Voice call
             },
-            icon: Icon(Icons.call, color: kOnSurface),
+            icon: const Icon(Icons.call, color: kOnSurface),
           ),
         ],
       ),
@@ -331,7 +331,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   onPressed: () {
                     // Attach file
                   },
-                  icon: Icon(Icons.attach_file, color: kOnSurfaceVariant),
+                  icon: const Icon(Icons.attach_file, color: kOnSurfaceVariant),
                 ),
                 Expanded(
                   child: TextField(
@@ -355,15 +355,15 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
                 const SizedBox(width: 8),
                 Container(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
                       colors: [kGradientStart, kGradientEnd],
                     ),
                     shape: BoxShape.circle,
                   ),
                   child: IconButton(
                     onPressed: _sendMessage,
-                    icon: Icon(Icons.send, color: kOnPrimary),
+                    icon: const Icon(Icons.send, color: kOnPrimary),
                   ),
                 ),
               ],
@@ -385,7 +385,7 @@ class _ChatScreenState extends State<ChatScreen> {
             : MainAxisAlignment.start,
         children: [
           if (!isMe) ...[
-            CircleAvatar(
+            const CircleAvatar(
               radius: 16,
               backgroundColor: kPrimaryContainer,
               child: Icon(Icons.person, size: 16, color: kPrimary),
@@ -435,7 +435,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           if (isMe) ...[
             const SizedBox(width: 8),
-            CircleAvatar(
+            const CircleAvatar(
               radius: 16,
               backgroundColor: kPrimaryContainer,
               child: Icon(Icons.person, size: 16, color: kPrimary),

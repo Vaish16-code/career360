@@ -17,7 +17,7 @@ class StudentProfileTab extends StatelessWidget {
             onPressed: () {
               // Show settings
             },
-            icon: Icon(Icons.settings, color: kOnSurface),
+            icon: const Icon(Icons.settings, color: kOnSurface),
           ),
         ],
       ),
@@ -32,7 +32,7 @@ class StudentProfileTab extends StatelessWidget {
                 children: [
                   Stack(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 50,
                         backgroundColor: kPrimaryContainer,
                         child: Icon(Icons.person, size: 50, color: kPrimary),
@@ -41,7 +41,7 @@ class StudentProfileTab extends StatelessWidget {
                         bottom: 0,
                         right: 0,
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: kPrimary,
                             shape: BoxShape.circle,
                           ),
@@ -49,7 +49,7 @@ class StudentProfileTab extends StatelessWidget {
                             onPressed: () {
                               // Edit profile picture
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.camera_alt,
                               color: kOnPrimary,
                               size: 16,
@@ -67,12 +67,12 @@ class StudentProfileTab extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  Text(
+                  const Text(
                     'Computer Science Student',
                     style: TextStyle(fontSize: 16, color: kOnSurfaceVariant),
                   ),
                   const SizedBox(height: 8),
-                  Text(
+                  const Text(
                     'john.student@email.com',
                     style: TextStyle(fontSize: 14, color: kOnSurfaceVariant),
                   ),
@@ -253,7 +253,7 @@ class StudentProfileTab extends StatelessWidget {
           ),
           Text(
             subtitle,
-            style: TextStyle(fontSize: 10, color: kOnSurfaceVariant),
+            style: const TextStyle(fontSize: 10, color: kOnSurfaceVariant),
           ),
         ],
       ),
@@ -267,7 +267,7 @@ class StudentProfileTab extends StatelessWidget {
         const SizedBox(width: 12),
         Text(
           '$label:',
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w500,
             color: kOnSurfaceVariant,
           ),
@@ -319,12 +319,12 @@ class StudentProfileTab extends StatelessWidget {
                   ),
                   Text(
                     subtitle,
-                    style: TextStyle(fontSize: 12, color: kOnSurfaceVariant),
+                    style: const TextStyle(fontSize: 12, color: kOnSurfaceVariant),
                   ),
                 ],
               ),
             ),
-            Icon(Icons.chevron_right, color: kOnSurfaceVariant),
+            const Icon(Icons.chevron_right, color: kOnSurfaceVariant),
           ],
         ),
       ),

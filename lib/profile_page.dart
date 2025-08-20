@@ -146,12 +146,12 @@ class _ProfilePageState extends State<ProfilePage> {
                             backgroundImage: _profileImage != null
                                 ? FileImage(_profileImage!)
                                 : const AssetImage("assets/default_profile.png") as ImageProvider,
-                            child: Align(
+                            child: const Align(
                               alignment: Alignment.bottomRight,
                               child: CircleAvatar(
                                 radius: 14,
                                 backgroundColor: Colors.white,
-                                child: const Icon(Icons.camera_alt, size: 16, color: Colors.deepPurple),
+                                child: Icon(Icons.camera_alt, size: 16, color: Colors.deepPurple),
                               ),
                             ),
                           ),
@@ -240,9 +240,9 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(children: [Text("${userData["streak"]} days", style: const TextStyle(color: Colors.green, fontWeight: FontWeight.bold)), const Text("Current Streak")]),
-                Column(children: [Text("${userData["badgesEarned"]}", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)), const Text("Badges Earned")]),
-                Column(children: [Text("${userData["gamesCompleted"]}", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold)), const Text("Games Completed")]),
-                Column(children: [Text("#${userData["rank"]}", style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold)), const Text("Rank")]),
+                Column(children: [Text("${userData["badgesEarned"]}", style: const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)), const Text("Badges Earned")]),
+                Column(children: [Text("${userData["gamesCompleted"]}", style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold)), const Text("Games Completed")]),
+                Column(children: [Text("#${userData["rank"]}", style: const TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold)), const Text("Rank")]),
               ],
             ),
 

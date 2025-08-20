@@ -100,9 +100,9 @@ class RoleSelectScreen extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  side: BorderSide(color: kGradientStart),
+                  side: const BorderSide(color: kGradientStart),
                 ),
-                child: Text(
+                child: const Text(
                   'Login',
                   style: TextStyle(
                     color: kGradientStart,

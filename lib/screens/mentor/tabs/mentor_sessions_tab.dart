@@ -16,7 +16,7 @@ class MentorSessionsTab extends StatelessWidget {
             onPressed: () {
               // Update availability
             },
-            icon: Icon(Icons.calendar_today, color: kOnSurface),
+            icon: const Icon(Icons.calendar_today, color: kOnSurface),
           ),
         ],
       ),

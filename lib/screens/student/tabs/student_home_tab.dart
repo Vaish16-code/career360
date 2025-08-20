@@ -12,7 +12,7 @@ class StudentHomeTab extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Row(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               backgroundColor: kPrimaryContainer,
               child: Icon(Icons.person, color: kPrimary),
             ),
@@ -42,8 +42,8 @@ class StudentHomeTab extends StatelessWidget {
             onPressed: () {
               // Show notifications
             },
-            icon: Badge(
-              label: const Text('3'),
+            icon: const Badge(
+              label: Text('3'),
               child: Icon(Icons.notifications_outlined, color: kOnSurface),
             ),
           ),
@@ -211,7 +211,7 @@ class StudentHomeTab extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             value,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w700,
               color: kOnSurface,
@@ -219,7 +219,7 @@ class StudentHomeTab extends StatelessWidget {
           ),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w500,
               color: kOnSurfaceVariant,
@@ -227,7 +227,7 @@ class StudentHomeTab extends StatelessWidget {
           ),
           Text(
             subtitle,
-            style: TextStyle(fontSize: 10, color: kOnSurfaceVariant),
+            style: const TextStyle(fontSize: 10, color: kOnSurfaceVariant),
           ),
         ],
       ),
@@ -267,7 +267,7 @@ class StudentHomeTab extends StatelessWidget {
                   color: kPrimaryContainer,
                   borderRadius: BorderRadius.circular(25),
                 ),
-                child: Icon(Icons.person, color: kPrimary),
+                child: const Icon(Icons.person, color: kPrimary),
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -283,12 +283,12 @@ class StudentHomeTab extends StatelessWidget {
                     ),
                     Text(
                       session['topic']!,
-                      style: TextStyle(color: kOnSurfaceVariant, fontSize: 14),
+                      style: const TextStyle(color: kOnSurfaceVariant, fontSize: 14),
                     ),
                     const SizedBox(height: 4),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.schedule,
                           size: 16,
                           color: kOnSurfaceVariant,
@@ -296,7 +296,7 @@ class StudentHomeTab extends StatelessWidget {
                         const SizedBox(width: 4),
                         Text(
                           '${session['time']} • ${session['duration']}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: kOnSurfaceVariant,
                             fontSize: 12,
                           ),
@@ -317,7 +317,7 @@ class StudentHomeTab extends StatelessWidget {
                 ),
                 child: Text(
                   session['type']!,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: kPrimary,
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
@@ -367,7 +367,7 @@ class StudentHomeTab extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 subtitle,
-                style: TextStyle(color: kOnSurfaceVariant, fontSize: 12),
+                style: const TextStyle(color: kOnSurfaceVariant, fontSize: 12),
                 textAlign: TextAlign.center,
               ),
             ],

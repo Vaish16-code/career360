@@ -150,7 +150,7 @@ class _RegisterStudentScreenState extends State<RegisterStudentScreen> {
                   const SizedBox(height: 12),
                   DropdownButtonFormField<String>(
                     decoration: const InputDecoration(labelText: "Class"),
-                    value: selectedClass,
+                    initialValue: selectedClass,
                     items: classes
                         .map((c) => DropdownMenuItem(value: c, child: Text(c)))
                         .toList(),

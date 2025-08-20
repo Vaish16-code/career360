@@ -97,7 +97,7 @@ class _StudentRequestsTabState extends State<StudentRequestsTab> {
             // Header
             Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundColor: kPrimaryContainer,
                   child: Icon(Icons.person, color: kPrimary),
                 ),
@@ -115,7 +115,7 @@ class _StudentRequestsTabState extends State<StudentRequestsTab> {
                       ),
                       Text(
                         request['expertise'],
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 14,
                           color: kOnSurfaceVariant,
                         ),
@@ -154,7 +154,7 @@ class _StudentRequestsTabState extends State<StudentRequestsTab> {
             const SizedBox(height: 16),
 
             // Request Message
-            Text(
+            const Text(
               'Your Message:',
               style: TextStyle(
                 fontSize: 12,
@@ -168,7 +168,7 @@ class _StudentRequestsTabState extends State<StudentRequestsTab> {
             // Response (if any)
             if (request['response'] != null) ...[
               const SizedBox(height: 12),
-              Text(
+              const Text(
                 'Mentor Response:',
                 style: TextStyle(
                   fontSize: 12,
@@ -195,11 +195,11 @@ class _StudentRequestsTabState extends State<StudentRequestsTab> {
             // Footer
             Row(
               children: [
-                Icon(Icons.calendar_today, size: 16, color: kOnSurfaceVariant),
+                const Icon(Icons.calendar_today, size: 16, color: kOnSurfaceVariant),
                 const SizedBox(width: 4),
                 Text(
                   'Requested on ${request['requestDate']}',
-                  style: TextStyle(fontSize: 12, color: kOnSurfaceVariant),
+                  style: const TextStyle(fontSize: 12, color: kOnSurfaceVariant),
                 ),
                 const Spacer(),
                 if (request['status'] == 'approved')

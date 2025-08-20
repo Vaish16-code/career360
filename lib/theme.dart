@@ -55,10 +55,8 @@ ThemeData appTheme() {
       onTertiaryContainer: kOnTertiaryContainer,
       surface: kSurface,
       onSurface: kOnSurface,
-      surfaceVariant: kSurfaceVariant,
+      surfaceContainerHighest: kSurfaceVariant,
       onSurfaceVariant: kOnSurfaceVariant,
-      background: kBackground,
-      onBackground: kOnBackground,
       error: kError,
       onError: kOnError,
       errorContainer: kErrorContainer,
@@ -132,7 +130,7 @@ ThemeData appTheme() {
         borderSide: const BorderSide(color: kError),
       ),
       contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-      labelStyle: TextStyle(color: kOnSurfaceVariant),
+      labelStyle: const TextStyle(color: kOnSurfaceVariant),
       hintStyle: TextStyle(color: kOnSurfaceVariant.withOpacity(0.6)),
     ),
     cardTheme: CardThemeData(
@@ -148,14 +146,14 @@ ThemeData appTheme() {
       side: BorderSide.none,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: kSurface,
       selectedItemColor: kPrimary,
       unselectedItemColor: kOnSurfaceVariant,
       type: BottomNavigationBarType.fixed,
       elevation: 8,
-      selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),
-      unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w400),
+      selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
+      unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
     ),
   );
 }

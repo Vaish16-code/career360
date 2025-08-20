@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile_page.dart';
+import 'careers.dart';
 import 'student_messages_page.dart';
 
 class BottomNavController extends StatefulWidget {
@@ -13,8 +14,8 @@ class _BottomNavControllerState extends State<BottomNavController> {
   int _selectedIndex = 0; // Start with Home tab
   final List<Widget> _pages = [
     const Center(child: Text("Home Page")),
-    const Center(child: Text("Games Page")),
-    const Center(child: Text("Careers Page")),
+    const Center(child: Text("Games Pag2222")),
+    const StudentCareers(),
     const Center(child: Text("Mentors Page")),
     const StudentMessagesPage(),
     const ProfilePage(),

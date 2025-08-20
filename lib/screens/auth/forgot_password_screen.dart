@@ -71,11 +71,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               // Illustration
               Container(
                 padding: const EdgeInsets.all(32),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: kPrimaryContainer,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(Icons.lock_reset, size: 80, color: kPrimary),
+                child: const Icon(Icons.lock_reset, size: 80, color: kPrimary),
               ),
 
               const SizedBox(height: 32),
